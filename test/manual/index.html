@@ -65,6 +65,15 @@
       })
     }
 
+    function printHtmlWithAllStyle() {
+
+      printJS({
+        printable: 'test',
+        type: 'html',
+        allStyle:true
+      })
+    }
+
     function printHtmlCss() {
       printJS({
         printable: 'test',
@@ -212,6 +221,16 @@
       })
     }
   </script>
+  <style>
+    h1{
+      color: red;
+    }
+  </style>
+  <style>
+    h2{
+      color: red;
+    }
+  </style>
   <body>
     <section id="test" class="test">
       <h1>Print.js Test Page</h1>
@@ -235,6 +254,9 @@
         </button>
         <button onClick='printHtmlCustomStyle();'>
           Print HTML with custom style
+        </button>
+        <button onClick='printHtmlWithAllStyle();'>
+          Print HTML with all style
         </button>
         <button onClick='printHtmlCss();'>
           Print HTML with custom css

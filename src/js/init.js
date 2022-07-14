@@ -38,6 +38,7 @@ export default {
       repeatTableHeader: true,
       css: null,
       style: null,
+      allStyle:null,
       scanStyles: true,
       base64: false,
 
@@ -126,6 +127,14 @@ export default {
           printFrame.srcdoc += '<link rel="stylesheet" href="' + file + '">'
         })
       }
+      // 获取当前document，所有style
+      if(params.allStyle){
+        if(typeof params.allStyle === 'boolean'){
+          printFrame.srcdoc += getStyle()
+        }else{
+          printFrame.srcdoc += params.allStyle
+        }
+      }
 
       printFrame.srcdoc += '</head><body></body></html>'
     }
@@ -165,4 +174,15 @@ export default {
         break
     }
   }
+}
+
+
+ function getStyle(notPrint = '.no-print') {
+  let str = '';
+  const styles = document.querySelectorAll('style,link');
+  for (let i = 0; i < styles.length; i++) {
+    str += styles[i].outerHTML;
+  }
+  str += '<style>' + notPrint + '{display:none;}</style>';
+  return str;
 }

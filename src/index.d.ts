@@ -26,6 +26,7 @@ declare namespace printJS {
     repeatTableHeader?: boolean;
     css?: string | string[];
     style?: string;
+    allStyle?:boolean|string;
     scanStyles?: boolean;
     onError?: (error: any, xmlHttpRequest?: XMLHttpRequest) => void;
     onPrintDialogClose?: () => void;
